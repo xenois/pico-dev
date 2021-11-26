@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {  
+        "name": "Pico Debug",
+        "device": "RP2040",
+        "gdbPath": "arm-none-eabi-gdb",
+        "cwd": "${workspaceRoot}",
+        "executable": "${workspaceRoot}/artifacts/${fileBasenameNoExtension}.elf",
+        "request": "launch",
+        "type": "cortex-debug",
+        "servertype": "openocd",
+        "configFiles": [
+            "interface/cmsis-dap.cfg",
+            "target/rp2040-core0.cfg"
+        ],
+        "openOCDLaunchCommands": [
+            "transport select swd",
+            "adapter speed 4000"
+        ],
+        "debuggerArgs": ["--directory=${workspaceRoot}/app/"],
+        "svdFile": "${workspaceRoot}/pico/pico-sdk/src/rp2040/hardware_regs/rp2040.svd",
+        "runToMain": true,
+        "postRestartCommands": [
+            "break main",
+            "continue"
+        ]
+    }
+    ]
+  }
