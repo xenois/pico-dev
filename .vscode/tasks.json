@@ -3,7 +3,21 @@
 		{
 			"type": "shell",
 			"label": "Pico Build",
-			"command": "docker build --pull --rm -f \"${workspaceFolder}/PicoDev.Dockerfile\" -t picodev:latest \".\" && docker build --rm -f \"${workspaceFolder}/PicoProject.Dockerfile\" -t picoproject:latest \".\" && docker run --rm --name pico -dit picoproject:latest && docker cp pico:/root/pico/artifacts/ \"${workspaceFolder}/\" && docker container kill pico",
+			"command": "docker build --rm -f \"${workspaceFolder}/PicoProject.Dockerfile\" -t picoproject:latest \".\" && docker run --rm --name pico -dit picoproject:latest && docker cp pico:/root/pico/artifacts/ \"${workspaceFolder}/\" && docker container kill pico",
+			"args": [],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			  }
+		},
+		{
+			"type": "shell",
+			"label": "Pico Init",
+			"command": "docker build --pull --rm -f \"${workspaceFolder}/PicoDev.Dockerfile\" -t picodev:latest \".\" && git submodule update --init",
 			"args": [],
 			"options": {
 				"cwd": "${workspaceFolder}"
