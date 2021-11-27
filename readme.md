@@ -1,10 +1,12 @@
 ## Description
 
-This project is created to make C++ development for Raspberry Pi Pico devices easy. Everything is built in Docker, so it's OS independent. Put your code in `app/` folder, then compile with `Ctrl+Shift+B`. The `.uf2` and `.elf` binaries will be found at `/artifacts`. Put the pico device in bootloader mode and upload `.uf2` to your pico device.
+This project is created to make C++ development in VSCode for Raspberry Pi Pico devices easy. Everything is built in Docker, so it's OS independent. Put your code in `app/` folder, `Terminal > Run Tasks > Pico Init` once to set up the project, then compile binaries with `Ctrl+Shift+B`. The `.uf2` and `.elf` binaries will be found at `/artifacts`. Put the pico device in bootloader mode and upload `.uf2` to your pico device.
 
 Thanks to this project https://github.com/majbthrd/pico-debug , you can now directly debug your pico without the need for another device. Check down for more info.
 
 ## Requirements
+[VSCode](https://code.visualstudio.com/)
+
 [Docker](https://www.docker.com/products/docker-desktop)
 
 ### Debugging
